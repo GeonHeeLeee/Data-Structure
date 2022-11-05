@@ -113,17 +113,6 @@ class HW_Hashing:
         
         
 
-a = [[1,2],[3,4],[1,1],[5,6],[2,1]]
-b = [[1,2],[3,4],[1,1],[5,6],[1,1]]
-
-if __name__ =='__main__':
-    t = HW_Hashing(5)
-    t.h = [[1,2],[3,4],[1,1],[5,6],[2,1]]
-    t.d = [[1,2],[3,4],[1,1],[5,6],[2,2]]
-    t.print_table()
-    t.put(25,'grape')
-    t.print_table()
-'''
 if __name__ =='__main__':
     t = HW_Hashing(13)
     t.put(25, 'grape')
@@ -154,4 +143,3 @@ if __name__ =='__main__':
     t.put(91,'kiwi')
     print('key 91 data =', t.get(91))
     t.print_table()
-'''
