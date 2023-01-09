@@ -6,3 +6,4 @@ Data Structure implements
 
 1. Hashing Method
 2. Drawing Sierprinski Triangle using recursion
+3. Binary Search Tree
