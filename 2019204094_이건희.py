@@ -1,0 +1,100 @@
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.left = None
+        self.right = None 
+        #linked list로 노드 구현(데이터, 왼쪽 child, 오른쪽 child)
+        
+
+class Bst:
+    def __init__(self,root):
+        self.root = root
+        self.resultArr = []
+        self.resultArr.append(root.data)
+        #Binary Search Tree 구현 : 처음 트리 생성 시 root 입력, 평균을 구하기 위한 resultArr 생성 후 root의 값 입력
+    
+    def insert(self,data):
+        self.currentNode = self.root
+        #값 비교 시 사용할 self.currentNode(현재노드)를 초기 root로 설정
+        self.resultArr.append(data)
+        #값들의 평균을 구할 때 사용하기 위한 resultArr에 값 append
+        while(True):
+            if(self.currentNode.data > data):
+                #현재 노드의 값보다 추가하려는 노드의 값이 더 작을 때
+                if(self.currentNode.left != None):
+                    self.currentNode = self.currentNode.left
+                    #현재 노드의 왼쪽 자식이 비어 있지 않은 경우 - 현재 노드의 왼쪽 자식 노드를 현재 노드로 설정
+                else:
+                    #현재 노드의 왼쪽 자식이 비어 있는 경우
+                    self.currentNode.left = Node(data)
+                    break
+
+
+            elif(self.currentNode.data < data):
+                #현재 노드의 값보다 추가하려는 노드의 값이 더 클 때
+                if(self.currentNode.right != None):
+                    #현재 노드의 오른쪽 자식이 비어 있지 않은 경우 - 현재 노드의 오른쪽 자식 노드를 현재 노드로 설정
+                    self.currentNode = self.currentNode.right
+                    
+                else:
+                    #현재 노드의 오른쪽 자식이 비어 있는 경우
+                    self.currentNode.right = Node(data)
+                    break
+            elif(self.currentNode.data == data):
+                #값이 이미 존재하는 경우
+                print("Data :",data,"-Already Exists")
+                break
+            
+
+    def getAverage(self):
+        sum = 0
+        count = 0
+        #초기합과 조건을 만족하는 초기 노드의 수 0으로 설정
+        for i in range(len(self.resultArr)):
+            data = self.resultArr.pop()
+            if(data >= 30 and data <=70):
+                sum = sum + data
+                count = count + 1
+        return sum/count
+        #BST 생성 시 생성한 resultArr에서 조건(30이상 70이하)에 부합하는 값 찾아서 평균 내기
+
+        
+
+
+root = Node(44) #루트 노드의 값 44로 설정
+r = Bst(root) #루트 노드의 값이 44인 BST 생성
+r.insert(88)
+r.insert(17)
+r.insert(32)
+r.insert(65)
+r.insert(97)
+r.insert(8)
+r.insert(82)
+r.insert(93)
+r.insert(28)
+r.insert(54)
+r.insert(29)
+r.insert(76)
+r.insert(80)
+print("값이 30이상 70이하인 것들의 평균 : ",r.getAverage())
+
+
+
+
+
+
+        
+        
+        
+        
+
+
+
+        
+                
+
+
+
+    
+
+        
